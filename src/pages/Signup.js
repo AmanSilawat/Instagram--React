@@ -27,7 +27,7 @@ const Signup = () => {
 
                 console.log('createUserResult', createUserResult)
                 await createUserResult.user.updateProfile({
-                    displayName: username
+                    displayName: username.toLocaleLowerCase()
                 });
 
                 // firebase user collection (create a dou)
@@ -37,6 +37,7 @@ const Signup = () => {
                     fullName,
                     emailAddress: emailAddress.toLocaleLowerCase(),
                     following: [],
+                    followers: [],
                     dateCreated: Date.now()
                 });
 
