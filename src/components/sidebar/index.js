@@ -5,7 +5,7 @@ import Suggestions from './Suggestions';
 
 const Sidebar = () => {
     const { user: { docId, fullName, username, userId, following } } = useUser()
-    console.log('following', following);
+
     return (
         <div className="p-4">
             <User

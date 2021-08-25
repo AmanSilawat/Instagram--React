@@ -25,7 +25,6 @@ const Signup = () => {
                     .auth()
                     .createUserWithEmailAndPassword(emailAddress, password)
 
-                console.log('createUserResult', createUserResult)
                 await createUserResult.user.updateProfile({
                     displayName: username.toLocaleLowerCase()
                 });
