@@ -13,7 +13,7 @@ const useAuthListener = () => {
                 localStorage.setItem('authUser', JSON.stringify(authUser));
                 setUser(authUser);
             } else {
-                // we don't have an authUser, therefore clear the localStorage
+                // clear the localStorage
                 localStorage.removeItem('authUser');
                 setUser(null);
             }

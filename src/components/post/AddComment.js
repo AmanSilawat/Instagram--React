@@ -14,7 +14,6 @@ export default function AddComment({ docId, comments, setComments, commentInput 
         event.preventDefault();
 
         setComments([...comments, { displayName, comment }]);
-        console.log('comment', comment)
         setComment('');
 
         return firebase

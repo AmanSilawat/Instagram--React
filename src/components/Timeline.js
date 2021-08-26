@@ -8,7 +8,6 @@ import Post from './post';
 export default function Timeline() {
     // const { user } = useContext(LoggedInUserContext);
     const { photos } = usePhotos();
-    console.log('photo', photos);
 
     return (
         <div className="container col-span-2">

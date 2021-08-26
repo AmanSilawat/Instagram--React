@@ -1,5 +1,5 @@
 import React from 'react';
-import useUser from '../../hooks/use-user';
+import useUser from '../../hooks/useUser';
 import User from './User';
 import Suggestions from './Suggestions';
 

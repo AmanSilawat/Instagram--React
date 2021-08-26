@@ -121,3 +121,54 @@ export async function getUserByUsername(username) {
         docId: item.id
     }));
 }
+
+export async function getUserPhotosByUserId(userId) {
+
+    const result = await firebase
+        .firestore()
+        .collection('photos')
+        .where('userId', '==', userId)
+        .get();
+
+    console.log('result', result)
+
+    const photos = result.docs.map(photo => ({
+        ...photo.data(),
+        docId: photo.id
+    }));
+    return photos;
+}
+
+export async function isUserFollowingProfile(loggedInUserUsername, profileUserId) {
+    const result = await firebase
+        .firestore()
+        .collection('users')
+        .where('username', '==', loggedInUserUsername) // karl (active logged in user)
+        .where('following', 'array-contains', profileUserId)
+        .get();
+
+    const [response = {}] = result.docs.map((item) => ({
+        ...item.data(),
+        docId: item.id
+    }));
+
+    return response.userId;
+}
+
+export async function toggleFollow(
+    isFollowingProfile,
+    activeUserDocId,
+    profileDocId,
+    profileUserId,
+    followingUserId
+) {
+    // 1st param: aman's doc id
+    // 2nd param: saleh's user id
+    // 3rd param: is the user following this profile? e.g. does aman follow saleh? (true/false)
+    await updateLoggedInUserFollowing(activeUserDocId, profileUserId, isFollowingProfile);
+
+    // 1st param: aman's user id
+    // 2nd param: saleh's doc id
+    // 3rd param: is the user following this profile? e.g. does aman follow saleh? (true/false)
+    await updateFollowedUserFollowers(profileDocId, followingUserId, isFollowingProfile);
+}

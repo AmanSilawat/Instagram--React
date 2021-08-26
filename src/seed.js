@@ -14,9 +14,9 @@ export function seedDatabase(firebase) {
 		},
 		{
 			userId: '2',
-			username: 'raphael',
+			username: 'saleh',
 			fullName: 'Raffaello Sanzio da Urbino',
-			emailAddress: 'raphael@sanzio.com',
+			emailAddress: 'saleh.majeed8@gmail.com',
 			following: [],
 			followers: ['FrOvAnWMwGP3I0sr4Y4V73F6bf53'],
 			dateCreated: Date.now()
@@ -54,7 +54,7 @@ export function seedDatabase(firebase) {
 			.add({
 				photoId: i,
 				userId: '2',
-				imageSrc: `/images/users/raphael/${i}.jpg`,
+				imageSrc: `/images/users/saleh/${i}.jpg`,
 				caption: 'Saint George and the Dragon',
 				likes: [],
 				comments: [
